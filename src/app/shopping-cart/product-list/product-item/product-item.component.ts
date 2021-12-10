@@ -12,7 +12,7 @@ import { WishlistService } from 'src/app/services/wishlist.service';
 export class ProductItemComponent implements OnInit {
 
   @Input() productItem!: Product;
-  addedToWishlist: boolean = false;
+  @Input() addedToWishlist: boolean = false;
 
   constructor(private msg: MessengerService,
               private cartService:CartService,
@@ -29,12 +29,14 @@ export class ProductItemComponent implements OnInit {
   }
 
   handleAddToWishlist(){
-    this.wishlistService.addToWishList(this.productItem.id).subscribe(() => {
-        this.addedToWishlis
+    this.wishlistService.addToWishlist(this.productItem.id).subscribe(() => {
+        this.addedToWishlist = true;
     });
   }
 
   handleRemoveFromWishlist(){
-
+    this.wishlistService.removeFromWishlist(this.productItem.id).subscribe(() => {
+      this.addedToWishlist = false;
+  });
   }
 }
