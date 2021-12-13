@@ -15,6 +15,8 @@ import { CartItemComponent } from './shopping-cart/cart/cart-item/cart-item.comp
 import { ProductItemComponent } from './shopping-cart/product-list/product-item/product-item.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -30,12 +32,15 @@ import { RegisterComponent } from './register/register.component';
     CartItemComponent,
     ProductItemComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
